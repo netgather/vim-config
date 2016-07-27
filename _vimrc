@@ -1,4 +1,3 @@
-“测试一下git”
 "-----------------------------------------------------------------------
 "                             < Vundle设置 >
 "-----------------------------------------------------------------------
@@ -158,15 +157,11 @@ endfunction
 set lines=35 columns=150
 
 "配色
-syntax enable
-"set background=dark
-"colorscheme brogrammer
 syntax on
 color dracula
 
 "字体设置
 set guifont=YaHei_Consolas_Hybrid:h12:cANSI
-
 
 "隐藏工具栏
 set guioptions-=T
@@ -268,7 +263,6 @@ set scrolloff=3
 
 "关闭拼写检查
 set nospell
-
 
 "-----------------------------------------------------------------------
 "                             < 映射设置 >
