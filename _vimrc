@@ -1,4 +1,4 @@
-"-----------------------------------------------------------------------
+﻿"-----------------------------------------------------------------------
 "                             < Vundle设置 >
 "-----------------------------------------------------------------------
 
@@ -37,10 +37,12 @@ Plugin 'https://github.com/asins/vimcdoc'
 
 ""主题
 Plugin 'dracula/vim'
+""test git
 
 ""补全框架
+Plugin 'https://github.com/vim-scripts/OmniCppComplete'
+Plugin 'https://github.com/Shougo/neocomplete.vim'
 "Plugin 'https://github.com/Shougo/neocomplcache.vim'
-Plugin 'https://github.com/Valloric/YouCompleteMe'
 
 ""文件列表
 Plugin 'https://github.com/scrooloose/nerdtree'
@@ -94,9 +96,46 @@ Plugin 'https://github.com/godlygeek/tabular'
 ""对象增强
 Plugin 'https://github.com/tpope/vim-unimpaired'
 
+""竖线
+Plugin 'https://github.com/Yggdroot/indentLine'
 
 ""其他
 Plugin 'https://github.com/tpope/vim-bundler'
+Plugin 'https://github.com/ervandew/supertab'
+Plugin 'https://github.com/asins/vim-dict'
+
+""项目管理
+Plugin 'https://github.com/amiorin/vim-project'
+
+""Java开发环境
+Plugin 'https://github.com/artur-shaik/vim-javacomplete2'
+"Plugin 'https://github.com/vim-scripts/javacomplete'
+Plugin 'https://github.com/yuratomo/java-api-complete'
+Plugin 'https://github.com/yuratomo/java-api-javax'
+Plugin 'https://github.com/yuratomo/java-api-org'
+Plugin 'https://github.com/vim-scripts/JavaBrowser'
+Plugin 'https://github.com/aur-archive/vim-java_apidoc'
+Plugin 'https://github.com/yuratomo/javap.vim'
+Plugin 'https://github.com/tpope/vim-classpath'
+Plugin 'https://github.com/vim-scripts/Vim-JDE'
+
+""javascript开发环境
+Plugin 'https://github.com/pangloss/vim-javascript'
+Plugin 'https://github.com/othree/javascript-libraries-syntax.vim'
+Plugin 'https://github.com/ternjs/tern_for_vim'
+
+""html开发环境
+Plugin 'https://github.com/mattn/emmet-vim'
+
+""NodeJS开发环境
+Plugin 'https://github.com/moll/vim-node'
+Plugin 'https://github.com/sidorares/node-vim-debugger'
+
+
+""语法检查
+Plugin 'https://github.com/scrooloose/syntastic'
+
+
 
 
 
@@ -157,17 +196,24 @@ endfunction
 set lines=35 columns=150
 
 "配色
-syntax on
-color dracula
+syntax enable
+set background=dark
+"colorscheme brogrammer
+"colorscheme material-theme
+"syntax on
+"color dracula
+color vividchalk
+
 
 "字体设置
 set guifont=YaHei_Consolas_Hybrid:h12:cANSI
+"set guifont=Consolas:h12:cANSI
 
 "隐藏工具栏
 set guioptions-=T
 
 "隐藏菜单栏
-set guioptions-=m           
+set guioptions-=m
 
 "自适应不同语言的智能缩进
 filetype indent on
@@ -179,7 +225,7 @@ syntax on
 set nu
 
 "禁用鼠标
-set mouse-=a
+"set mouse-=a
 
 "禁用滚动条
 set guioptions-=l
@@ -201,11 +247,18 @@ set nobackup
 
 "解决中文乱码
 set encoding=utf-8
-set fileencodings=utf-8,gbk,gb18030,gk2312,big5
+set fileencodings=utf-8,gbk,gb18030,gk2312,big5,chinese,latin-1
 
 "解决菜单乱码
 source $VIMRUNTIME/delmenu.vim
 source $VIMRUNTIME/menu.vim
+
+"解决终端乱码
+if has("win32")
+set fileencoding=chinese
+else
+set fileencoding=utf-8
+endif
 
 "解决consle乱码
 language messages zh_CN.utf-8
@@ -238,7 +291,7 @@ set wildmode=full
 set history=200
 
 "设置文件的后缀
-set suffixesadd=.java,.html,.css,.js,.sql
+"set suffixesadd=.java,.html,.css,.js,.sql
 
 "关闭错误提示声音
 set noeb
@@ -263,6 +316,9 @@ set scrolloff=3
 
 "关闭拼写检查
 set nospell
+
+"开启文件类型检测
+filetype plugin indent on
 
 "-----------------------------------------------------------------------
 "                             < 映射设置 >
@@ -327,14 +383,11 @@ nmap w. :vertical resize +3<CR>   "竖直
 "                             < 字典设置 >
 "-----------------------------------------------------------------------
 
-au FileType php setlocal dict+=D:/Program Files (x86)/Vim/vimfiles/dict/php_funclist.dict
-au FileType css setlocal dict+=D:/Program Files (x86)/Vim/vimfiles/dict/css.dict
-au FileType c setlocal dict+=D:/Program Files (x86)/Vim/vimfiles/dict/c.dict
-au FileType cpp setlocal dict+=D:/Program Files (x86)/Vim/vimfiles/dict/cpp.dict
-au FileType scale setlocal dict+=D:/Program Files (x86)/Vim/vimfiles/dict/scale.dict
-au FileType javascript setlocal dict+=D:/Program Files (x86)/Vim/vimfiles/dict/javascript.dict
-au FileType html setlocal dict+=D:/Program Files (x86)/Vim/vimfiles/dict/javascript.dict
-au FileType html setlocal dict+=D:/Program Files (x86)/Vim/vimfiles/dict/css.dict
+autocmd filetype javascript set dictionary+=D:/AppData/Vim/directory/dict/javascript.dic
+autocmd filetype javascript set dictionary+=D:/AppData/Vim/directory/dict/node.dic
+autocmd filetype css set dictionary+=D:/AppData/Vim/directory/dict/css.dic
+autocmd filetype java set dictionary+=D:/AppData/Vim/directory/dict/java.dict
+autocmd filetype html setlocal dictionary+=D:/AppData/Vim/directory/dict/html.dic
 
 "-----------------------------------------------------------------------
 "                          < 普通关键字补全 >
@@ -346,36 +399,37 @@ set complete+=k
 "                      < Enable omni completion >
 "-----------------------------------------------------------------------
 
-"if has("autocmd")
-"   filetype on
-   "autocmd Filetype SQL setlocal tags+=D:\AppData\Vim\tags\sql\tags
-"endif
 
-"autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-"autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-"autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-"autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-"autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-"autocmd FileType java set omnifunc=javacomplete#Complete
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType javascript setlocal omnifunc=tern#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+autocmd FileType java set omnifunc=javacomplete#Complete
 
 
 "-----------------------------------------------------------------------
-"                               < 插件 >
-"----------------------------------------------------------------------- 
-
-set helplang=cn
+"                               < 插件管理 >
+"-----------------------------------------------------------------------
 
 "-- vundle setting --
 nmap pi :PluginInstall<cr>
 nmap pc :PluginClean<cr>
 nmap pl :PluginList<cr>
 
+"-----------------------------------------------------------------------
+"                               < 基本插件 >
+"-----------------------------------------------------------------------
+
+set helplang=cn
 
 "-- matchit setting --
 set nocompatible
 filetype plugin on
 runtime macros/matchit.vim
 
+"-- SuperTab setting --
+let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 
 "-- vim-airline setting--
 let g:airline_theme = 'kolor'
@@ -389,14 +443,12 @@ let g:airline#extensions#default#layout = [
       \ ]
 let g:airline#extensions#tabline#enabled = 1
 
-
 "-- surround setting --
 let g:surround_insert_tail = "<++>"
 let g:surround_{char2nr("d")} = "<div\1id: \r..*\r id=\"&\"\1>\r</div>"
 let g:surround_108 = "\\begin{\1environment: \1}\r\\end{\1\r}.*\r\1}"
 let g:surround_45 = "<% \r %>"
 let g:surround_61 = "<%= \r %>"
-
 
 "-- nerdcommenter setting --
 let loaded_nerd_comments=1
@@ -423,7 +475,6 @@ let g:NERDCommentEmptyLines = 1
 let g:NERDTrimTrailingWhitespace = 1
 
 
-
 "--tagbar setting--"
 nnoremap <silent> tb :TagbarToggle<CR>
 let g:tagbar_left=0
@@ -433,7 +484,7 @@ autocmd BufReadPost *.cpp,*.c,*.h,*.hpp,*.cc,*.cxx call tagbar#autoopen()
 
 
 "-- Ctrlp setting --
-let g:ctrlp_map = '<c-p>'     
+let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 nmap gm :CtrlPMRU<cr>
 nmap gb :CtrlPBuffer<cr>
@@ -516,6 +567,216 @@ nmap ht :Startify<cr>
 
 "-- vim-multiple-cursors setting --
 let g:multi_cursor_next_key="\<C-s>"
+
+
+"-- Yggdroot/indentLine setting --
+let g:indentLine_enabled = 1
+
+"Change Character Color
+" Vim & GVim
+let g:indentLine_color_term = 239
+let g:indentLine_color_gui = '#A4E57E'
+
+"Change Indent Char
+"Vim and GVim
+let g:indentLine_char = '¦'
+
+"Commands
+"IndentLinesToggle toggles lines on and off.
+
+"-----------------------------------------------------------------------
+"                               < 补全框架 >
+"-----------------------------------------------------------------------
+
+"-- omnicppcomplete setting --
+set completeopt=menu,menuone,longest
+let OmniCpp_MayCompleteDot = 1
+let OmniCpp_MayCompleteArrow = 1
+let OmniCpp_MayCompleteScope = 1
+let OmniCpp_SelectFirstItem = 2
+let OmniCpp_NamespaceSearch = 2
+let OmniCpp_ShowPrototypeInAbbr = 1
+let OmniCpp_GlobalScopeSearch=1
+let OmniCpp_DisplayMode=1
+let OmniCpp_ShowScopeInAbbr=1
+let OmniCpp_ShowAccess=1
+if has("autocmd")
+   filetype on
+   autocmd Filetype java setlocal tags+=D:\AppData\Vim\tags\Java\jdk1.6\tags
+endif
+
+"-- neocomplete setting --
+let g:acp_enableAtStartup = 0
+let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_smart_case = 1
+let g:neocomplete#sources#syntax#min_keyword_length = 3
+let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+let g:neocomplete#sources#dictionary#dictionaries = {
+    \ 'default' : '',
+    \ 'vimshell' : $HOME.'/.vimshell_hist',
+    \ 'scheme' : $HOME.'/.gosh_completions'
+    \ }
+if !exists('g:neocomplete#keyword_patterns')
+    let g:neocomplete#keyword_patterns = {}
+endif
+let g:neocomplete#keyword_patterns['default'] = '\h\w*'
+inoremap <expr><C-g>     neocomplete#undo_completion()
+inoremap <expr><C-l>     neocomplete#complete_common_string()
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function()
+  return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
+  " For no inserting <CR> key.
+  "return pumvisible() ? "\<C-y>" : "\<CR>"
+endfunction
+" <TAB>: completion.
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" <C-h>, <BS>: close popup and delete backword char.
+inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+if !exists('g:neocomplete#sources#omni#input_patterns')
+  let g:neocomplete#sources#omni#input_patterns = {}
+endif
+
+
+
+"-----------------------------------------------------------------------
+"                               < 项目管理 >
+"-----------------------------------------------------------------------
+
+
+
+"-----------------------------------------------------------------------
+"                               < 语法检查 >
+"-----------------------------------------------------------------------
+
+""-- scrooloose/syntastic setting --
+let g:syntastic_java_checkers = ['javac']
+let g:syntastic_javascript_checkers = ['jshint']
+let g:syntastic_html_tidy_exec = 'tidy5'
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_auto_loc_list = 0
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_quiet_messages = {
+        \ "!level":  "errors",
+        \ "type":    "style",
+        \ "regex":   '\m\[C03\d\d\]',
+        \ "file:p":  ['\m^/usr/include/', '\m\c\.h$'] }
+
+
+"-----------------------------------------------------------------------
+"                               < Java开发环境 >
+"-----------------------------------------------------------------------
+
+"-- javabrowser  setting --
+let JavaBrowser_Ctags_Cmd = "D:/Program Files (x86)/ctags58/ctags"
+
+"-- javacomplete setting --
+setlocal omnifunc=javacomplete#Complete
+inoremap <C-j> <C-X><C-U><C-P>
+
+"-- java-api-complete setting--
+au BufNewFile,BufRead *.java    setl omnifunc=javaapi#complete
+au CompleteDone *.java          call javaapi#showRef()
+au BufNewFile,BufRead *.java    inoremap <expr> <c-down> javaapi#nextRef()
+au BufNewFile,BufRead *.java    inoremap <expr> <c-up>   javaapi#prevRef()
+if has("balloon_eval") && has("balloon_multiline")
+           au BufNewFile,BufRead *.java  setl bexpr=javaapi#balloon()
+             au BufNewFile,BufRead *.java  setl ballooneval
+endif
+let g:javaapi#delay_dirs = [
+   \ 'java-api-javax',
+   \ 'java-api-org',
+   \ 'java-api-sun',
+   \ ]
+
+"-- javap setting --
+let g:javap_defines = [
+   \ { 'jar' : $JAVA_HOME.'/jre/lib/rt.jar', 'javadoc' : 'file:D:/AppData/Java/jdk-8u101-docs-all/docs/api/index.html' },
+   \ ]
+
+
+
+"-----------------------------------------------------------------------
+"                               < Python开发环境 >
+"-----------------------------------------------------------------------
+
+
+
+
+
+
+"-----------------------------------------------------------------------
+"                               < JavaScript开发环境 >
+"-----------------------------------------------------------------------
+
+"-- pangloss/vim-javascript setting --
+let g:javascript_plugin_jsdoc = 1
+let g:javascript_plugin_ngdoc = 1
+let g:javascript_plugin_flow = 1
+set foldmethod=syntax
+let g:javascript_conceal_function       = "ƒ"
+let g:javascript_conceal_null           = "ø"
+let g:javascript_conceal_this           = "@"
+let g:javascript_conceal_return         = "⇚"
+let g:javascript_conceal_undefined      = "¿"
+let g:javascript_conceal_NaN            = "ℕ"
+let g:javascript_conceal_prototype      = "¶"
+let g:javascript_conceal_static         = "•"
+let g:javascript_conceal_super          = "Ω"
+let g:javascript_conceal_arrow_function = "⇒"
+
+let g:used_javascript_libs = 'jQuery'
+autocmd BufReadPre *.js let b:javascript_lib_use_jquery = 1
+autocmd BufReadPre *.js let b:javascript_lib_use_underscore = 1
+autocmd BufReadPre *.js let b:javascript_lib_use_backbone = 1
+autocmd BufReadPre *.js let b:javascript_lib_use_prelude = 0
+autocmd BufReadPre *.js let b:javascript_lib_use_angularjs = 0
+
+
+
+
+
+"-----------------------------------------------------------------------
+"                               < HTML开发环境 >
+"-----------------------------------------------------------------------
+
+"-- emmet setting --
+"let g:user_emmet_expandabbr_key = '<Tab>'
+
+
+
+
+
+"-----------------------------------------------------------------------
+"                               < CSS开发环境 >
+"-----------------------------------------------------------------------
+
+
+
+"-----------------------------------------------------------------------
+"                              < NodeJS开发环境 >
+"-----------------------------------------------------------------------
+"Open any JavaScript file inside a Node project and you're all set.
+
+"Use gf inside require("...") to jump to source and module files.
+"Use [I on any keyword to look for it in the current and required files.
+"Use :Nedit module_name to edit the main file of a module.
+"Use :Nedit module_name/lib/foo to edit its lib/foo.js file.
+"Use :Nedit . to edit your Node projects main (usually index.js) file.
+
+"Use the Node autocommand. For example:
+autocmd User Node if &filetype == "javascript" | setlocal expandtab | endif
+
+"<C-w>f by default opens it in a horizontal split. To have it open vertically, drop this in your vimrc
+autocmd User Node
+  \ if &filetype == "javascript" |
+  \   nmap <buffer> <C-w>f <Plug>NodeVSplitGotoFile |
+  \   nmap <buffer> <C-w><C-f> <Plug>NodeVSplitGotoFile |
+  \ endif
 
 
 "-----------------------------------------------------------------------
@@ -614,8 +875,8 @@ nnoremap <Up> :call ToggleFold() <CR>
 "#非插入模式下F11全屏
 "#插入模式下F11全屏
 if has('win32')
-  map <F11> <Esc>:call libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 0)<CR>    
-  imap <F11> <Esc>:call libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 0)<CR>    
+  map <F11> <Esc>:call libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 0)<CR>
+  imap <F11> <Esc>:call libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 0)<CR>
 endif
 
 
