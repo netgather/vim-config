@@ -1,6 +1,6 @@
 >包含Vim的配置文件、添加Python和Luau支持的Vim可执行程序
 
-#前提
+#准备
 1. Vim 8.0(+) with Vundle
 2. 安装字体补丁
 3. 安装Python 2.7(+)、Python 3.5(+)、Lua 5.1(+)
