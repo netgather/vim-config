@@ -22,5 +22,5 @@
 
 
 #功能
-
---未完待续
+##Markdown实时预览
+![Markdown实时预览](http://p1.bpimg.com/4851/7870a2245b4babe9.gif)
