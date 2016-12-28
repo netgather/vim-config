@@ -11,9 +11,12 @@ Vim 8.0 + with Vundle
 
 #效果
 1. 起始
+
 ![效果图1](http://i1.piimg.com/4851/a146fc52a3b3f4ed.png)
 2. 编辑 
+
 ![效果图2](http://i1.piimg.com/4851/2db7f6a79be47a2e.png)
+
 
 #功能
 
