@@ -2,7 +2,7 @@
 
 #准备
 1. Vim 8.0(+) with Vundle
-2. 安装字体补丁
+2. [安装字体补丁](https://github.com/powerline/fonts)
 3. 安装Python 2.7(+)、Python 3.5(+)、Lua 5.1(+)
 
 #配置
