@@ -1,12 +1,12 @@
->包含Vim的配置文件、添加Python和Luau支持的Vim程序
+>包含Vim的配置文件、添加Python和Luau支持的Vim可执行程序
 
 #前提
 1. Vim 8.0(+) with Vundle
 2. 安装字体补丁
-3. 电脑上已经安装了Python2.7(+)、Python3.5(+)、Lua5.1(+)
+3. 安装Python 2.7(+)、Python 3.5(+)、Lua 5.1(+)
 
 #安装
-1. 备份vim配置文件
+1. 备份配置文件
 2. git clone https://github.com/netgather/vim-config.git
 3. 替换_vimrc
 4. 替换gvim.exe
@@ -23,8 +23,4 @@
 
 #功能
 
-##文档相关
-
-##编程相关
-
-##其他
+--未完待续
