@@ -18,8 +18,9 @@ Plugin 'https://github.com/wincent/command-t'
 Plugin 'https://github.com/rstacruz/sparkup'
 Plugin 'https://github.com/ascenator/L9'
 
+
 "-----------------------------------------------------------
-"--Vim增强
+"--样式美化
 "-----------------------------------------------------------
 
 ""文件系统
@@ -32,23 +33,25 @@ Plugin 'https://github.com/majutsushi/tagbar'
 Plugin 'https://github.com/vim-airline/vim-airline'
 Plugin 'https://github.com/vim-airline/vim-airline-themes'
 
-""为不同的单词着色
-Plugin 'https://github.com/dimasg/vim-mark'
+""历史文件
+Plugin 'https://github.com/mhinz/vim-startify'
 
-""括号匹配
+""图标
+Plugin 'https://github.com/ryanoasis/vim-devicons'
+
+
+"-----------------------------------------------------------
+"--Vim功能增强
+"-----------------------------------------------------------
+
+""给选中的文本加分隔符 ()/[]/{}/''/""
 Plugin 'https://github.com/tpope/vim-surround'
 
 ""书签
 Plugin 'https://github.com/MattesGroeger/vim-bookmarks'
 
-""历史文件
-Plugin 'https://github.com/mhinz/vim-startify'
-
-""括号补全
+""单引号、双引号匹配
 Plugin 'https://github.com/Raimondi/delimitMate'
-
-""快速跳转
-"Plugin 'https://github.com/easymotion/vim-easymotion'
 
 ""有道词典
 Plugin 'https://github.com/ianva/vim-youdao-translater'
@@ -62,57 +65,8 @@ Plugin 'https://github.com/tpope/vim-unimpaired'
 ""tab增强
 Plugin 'https://github.com/ervandew/supertab'
 
-"-----------------------------------------------------------
-"--补全
-"-----------------------------------------------------------
-
-Plugin 'https://github.com/vim-scripts/OmniCppComplete'
-Plugin 'https://github.com/Shougo/neocomplete.vim'
-
-"-----------------------------------------------------------
-"--模板
-"-----------------------------------------------------------
-
-Plugin 'https://github.com/drmingdrmer/xptemplate'
-Plugin 'honza/vim-snippets'
-
-"-----------------------------------------------------------
-"--开发
-"-----------------------------------------------------------
-
-""Java
-Plugin 'https://github.com/artur-shaik/vim-javacomplete2'
-Plugin 'https://github.com/yuratomo/java-api-complete'
-Plugin 'https://github.com/yuratomo/javap.vim'
-Plugin 'https://github.com/yuratomo/java-api-javax'
-Plugin 'https://github.com/yuratomo/java-api-org'
-
-""javascript
-Plugin 'https://github.com/pangloss/vim-javascript'
-Plugin 'https://github.com/ternjs/tern_for_vim'
-
-""html
-Plugin 'https://github.com/mattn/emmet-vim'
-
-""Python
-Plugin 'https://github.com/klen/python-mode'
-
-
-"-----------------------------------------------------------
-"--语法检查
-"-----------------------------------------------------------
-
-Plugin 'scrooloose/syntastic'
-
-"-----------------------------------------------------------
-"--注释
-"-----------------------------------------------------------
-
-Plugin 'https://github.com/scrooloose/nerdcommenter'
-
-"-----------------------------------------------------------
-"--常用工具
-"-----------------------------------------------------------
+""多光标
+Plugin 'https://github.com/terryma/vim-multiple-cursors'
 
 ""日历
 Plugin 'https://github.com/itchyny/calendar.vim'
@@ -123,20 +77,106 @@ Plugin 'https://github.com/tpope/vim-repeat'
 ""标签自动闭合
 Plugin 'https://github.com/tpope/vim-ragtag'
 
+""txt文件高亮
+Plugin 'https://github.com/vim-scripts/txt.vim'
+
+""撤销历史
+Plugin 'https://github.com/mbbill/undotree'
+
 
 "-----------------------------------------------------------
-"--MarkDown
-"-----------------------------------------------------------
-Plugin 'https://github.com/plasticboy/vim-markdown'
-
-
-"-----------------------------------------------------------
-"--git
+"--vim操作符扩展
 "-----------------------------------------------------------
 
-Plugin 'https://github.com/tpope/vim-fugitive'
+""注释--gc
+Plugin 'https://github.com/tpope/vim-commentary'
 
-""""""""""""""""""""""""""""""""""""""""""""""""
+
+"-----------------------------------------------------------
+"--vim动作命令扩展
+"-----------------------------------------------------------
+
+""文本对象--ie、ae
+"Plugin 'https://github.com/kana/vim-textobj-entire'
+
+
+"-----------------------------------------------------------
+"--补全框架
+"-----------------------------------------------------------
+
+Plugin 'https://github.com/vim-scripts/OmniCppComplete'
+Plugin 'https://github.com/Shougo/neocomplete.vim'
+
+
+"-----------------------------------------------------------
+"--补全模板
+"-----------------------------------------------------------
+
+Plugin 'Shougo/neosnippet'
+Plugin 'Shougo/neosnippet-snippets'
+
+
+"-----------------------------------------------------------
+"--开发环境
+"-----------------------------------------------------------
+
+""Java
+Plugin 'https://github.com/Shougo/vim-javacomplete2'
+Plugin 'https://github.com/yuratomo/java-api-complete'
+Plugin 'https://github.com/yuratomo/java-api-javax'
+Plugin 'https://github.com/yuratomo/java-api-org'
+Plugin 'https://github.com/yuratomo/java-api-sun'
+
+""javascript
+Plugin 'https://github.com/pangloss/vim-javascript'
+
+""html
+Plugin 'https://github.com/mattn/emmet-vim'
+
+""Python
+Plugin 'https://github.com/klen/python-mode'
+
+
+"-----------------------------------------------------------
+"--注释
+"-----------------------------------------------------------
+
+Plugin 'https://github.com/scrooloose/nerdcommenter'
+
+
+"-----------------------------------------------------------
+"--语法检查
+"-----------------------------------------------------------
+
+Plugin 'https://github.com/vim-syntastic/syntastic'
+
+
+"-----------------------------------------------------------
+"--编译运行
+"-----------------------------------------------------------
+
+"Plugin 'https://github.com/janko-m/vim-test'
+
+
+"-----------------------------------------------------------
+"--markdown
+"-----------------------------------------------------------
+
+
+Plugin 'https://github.com/hallison/vim-markdown'
+Plugin 'https://github.com/iamcco/markdown-preview.vim'
+
+"-----------------------------------------------------------
+"--Git
+"-----------------------------------------------------------
+Plugin 'junegunn/gv.vim'
+
+
+
+
+
+
+"------------------------------------------------------------------------------------------------------------------------"
 call vundle#end()            " required
 filetype plugin indent on    " required
 
@@ -163,32 +203,32 @@ behave mswin
 
 set diffexpr=MyDiff()
 function MyDiff()
-  let opt = '-a --binary '
-  if &diffopt =~ 'icase' | let opt = opt . '-i ' | endif
-  if &diffopt =~ 'iwhite' | let opt = opt . '-b ' | endif
-  let arg1 = v:fname_in
-  if arg1 =~ ' ' | let arg1 = '"' . arg1 . '"' | endif
-  let arg2 = v:fname_new
-  if arg2 =~ ' ' | let arg2 = '"' . arg2 . '"' | endif
-  let arg3 = v:fname_out
-  if arg3 =~ ' ' | let arg3 = '"' . arg3 . '"' | endif
-  if $VIMRUNTIME =~ ' '
-    if &sh =~ '\<cmd'
-      if empty(&shellxquote)
-        let l:shxq_sav = ''
-        set shellxquote&
-      endif
-      let cmd = '"' . $VIMRUNTIME . '\diff"'
-    else
-      let cmd = substitute($VIMRUNTIME, ' ', '" ', '') . '\diff"'
-    endif
-  else
-    let cmd = $VIMRUNTIME . '\diff'
-  endif
-  silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3
-  if exists('l:shxq_sav')
-    let &shellxquote=l:shxq_sav
-  endif
+let opt = '-a --binary '
+if &diffopt =~ 'icase' | let opt = opt . '-i ' | endif
+if &diffopt =~ 'iwhite' | let opt = opt . '-b ' | endif
+let arg1 = v:fname_in
+if arg1 =~ ' ' | let arg1 = '"' . arg1 . '"' | endif
+let arg2 = v:fname_new
+if arg2 =~ ' ' | let arg2 = '"' . arg2 . '"' | endif
+let arg3 = v:fname_out
+if arg3 =~ ' ' | let arg3 = '"' . arg3 . '"' | endif
+if $VIMRUNTIME =~ ' '
+if &sh =~ '\<cmd'
+if empty(&shellxquote)
+let l:shxq_sav = ''
+set shellxquote&
+endif
+let cmd = '"' . $VIMRUNTIME . '\diff"'
+else
+let cmd = substitute($VIMRUNTIME, ' ', '" ', '') . '\diff"'
+endif
+else
+let cmd = $VIMRUNTIME . '\diff'
+endif
+silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3
+if exists('l:shxq_sav')
+let &shellxquote=l:shxq_sav
+endif
 endfunction
 
 
@@ -197,23 +237,22 @@ endfunction
 "                             < 基本设置 >
 "-----------------------------------------------------------------------
 
-
 "设置窗口大小
 set lines=35 columns=120
 
 "配色
 syntax enable
 set background=dark
-colorscheme material-theme
+colorscheme vividchalk
 
 "字体设置
-set guifont=Droid\ Sans\ Mono:h12:cANSI
+set guifont=DejaVuSansMonoForPowerline\ Nerd:h11:cANSI
 
 "隐藏工具栏
 set guioptions-=T
 
 "隐藏菜单栏
-"set guioptions-=m
+set guioptions-=m
 
 "自适应不同语言的智能缩进
 filetype indent on
@@ -246,11 +285,14 @@ set showcmd
 set nobackup
 
 "不产生交换文件
-:set noswapfile
+set noswapfile
 
 "解决中文乱码
 set encoding=utf-8
-set fileencodings=utf-8,gbk,gb18030,gk2312,big5,chinese,latin-1
+set fileencoding=utf-8
+set fileencodings=utf-8,cp936,gbk,gb18030,gk2312,latin-1,ucs-bom,gb2312
+let &termencoding=&encoding
+language messages zh_CN.UTF-8
 
 "解决菜单乱码
 source $VIMRUNTIME/delmenu.vim
@@ -267,7 +309,7 @@ endif
 language messages zh_CN.utf-8
 
 "vim 自动识别UTF8和GB2312
-set fencs=utf-8,gbk
+set fencs=utf-8,gbk,cp936
 
 "设置默认编码
 set encoding=utf-8
@@ -300,15 +342,15 @@ set noeb
 set vb t_vb=
 
 "共享剪切板
-set clipboard+=unnamed
+"set clipboard+=unnamed
 
 "超过100个字符时换行
 set textwidth=100000000
 set formatoptions+=tcarmM
 
 "断行设置
-set linebreak
-set breakat="`"
+"set linebreak
+"set breakat="`"
 
 "使用vim键盘
 set nocompatible
@@ -322,6 +364,13 @@ set spell
 "开启文件类型检测
 filetype plugin indent on
 
+let g:fencview_autodetect=1
+
+" 总是显示状态栏
+set laststatus=2
+
+" 高亮显示搜索结果
+set hlsearch
 "-----------------------------------------------------------------------
 "                             < 映射设置 >
 "-----------------------------------------------------------------------
@@ -408,26 +457,22 @@ nmap gm :CtrlPMRU<cr>
 nmap gb :CtrlPBuffer<cr>
 nmap ga :CtrlPMixed<cr>
 let g:ctrlp_working_path_mode = 'ra'
-set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe,*.bak,*.rar,*.7z,*.iso  " Windows
+set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe,*.bak,*.rar,*.7z,*.iso  
+let g:ctrlp_user_command = 'dir %s /-n /b /s /a-d'  
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
-  \ 'file': '\v\.(so|dll)$',
-  \ 'link': 'some_bad_symbolic_links',
-  \ }
-  
-"-- Bookmarks setting --
-let g:bookmark_sign = '>'
-let g:bookmark_annotation_sign = '#'
-let g:bookmark_save_per_working_dir = 1
-let g:bookmark_auto_save = 1                   "自动保存书签
-let g:bookmark_manage_per_buffer = 1           "在每个缓冲区管理书签
+\ 'dir':  '\v[\/]\.(git|hg|svn)$',
+\ 'file': '\v\.(so|dll)$',
+\ 'link': 'some_bad_symbolic_links',
+\ }
 
-"-- undotree setting --
-"nmap ut :UndotreeToggle<cr>
-"if has("persistent_undo")
-"    set undodir=D:/AppData/Vim/plugin/undotree/
-"    set undofile
-"endif
+"-- Bookmarks setting --
+highlight BookmarkSign ctermbg=NONE ctermfg=160
+highlight BookmarkLine ctermbg=194 ctermfg=NONE
+let g:bookmark_sign = '⚑'                               
+let g:bookmark_annotation_sign = '✎'
+let g:bookmark_save_per_working_dir = 1
+let g:bookmark_auto_save = 1                  
+let g:bookmark_manage_per_buffer = 1
 
 "-- youdao-translater setting --
 vnoremap <silent> <C-T> :<C-u>Ydv<CR>
@@ -437,62 +482,109 @@ noremap <leader>yd :<C-u>Yde<CR>
 "-- startify setting --
 let g:startify_session_dir = 'D:/AppData/Vim/plugin/startify/session'
 let g:startify_list_order = ['files', 'dir', 'sessions', 'bookmarks',
-        \ 'commands']
+\ 'commands']
 let g:startify_list_order = [
-		\ ['   My most recently', '   used files'],
-        \ 'files',
-        \ ['   My most recently used files in the current directory:'],
-        \ 'dir',
-        \ ['   These are my sessions:'],
-        \ 'sessions',
-        \ ['   These are my bookmarks:'],
-        \ 'bookmarks',
-        \ ['   These are my commands:'],
-        \ 'commands',
-        \ ]
+\ ['   My most recently', '   used files'],
+\ 'files',
+\ ['   My most recently used files in the current directory:'],
+\ 'dir',
+\ ['   These are my sessions:'],
+\ 'sessions',
+\ ['   These are my bookmarks:'],
+\ 'bookmarks',
+\ ['   These are my commands:'],
+\ 'commands',
+\ ]
 let g:startify_commands = [
-        \ ':help reference',
-        \ ['Vim Reference', 'h ref'],
-        \ {'h': 'h ref'},
-        \ {'m': ['My magical function', 'call Magic()']},
-        \ ]
+\ ':help reference',
+\ ['Vim Reference', 'h ref'],
+\ {'h': 'h ref'},
+\ {'m': ['My magical function', 'call Magic()']},
+\ ]
 let g:startify_files_number = 10
 let g:startify_files_number = 10
 let g:startify_enable_unsafe = 0
 let g:startify_session_autoload = 0
+let NERDTreeHijackNetrw = 0
 let g:startify_custom_header = [
-        \ '                                 ________  __ __        ',
-        \ '            __                  /\_____  \/\ \\ \       ',
-        \ '    __  __ /\_\    ___ ___      \/___//''/''\ \ \\ \    ',
-        \ '   /\ \/\ \\/\ \ /'' __` __`\        /'' /''  \ \ \\ \_ ',
-        \ '   \ \ \_/ |\ \ \/\ \/\ \/\ \      /'' /''__  \ \__ ,__\',
-        \ '    \ \___/  \ \_\ \_\ \_\ \_\    /\_/ /\_\  \/_/\_\_/  ',
-        \ '     \/__/    \/_/\/_/\/_/\/_/    \//  \/_/     \/_/    ',
-        \ ]
-
+\ '                                 ________  __ __        ',
+\ '            __                  /\_____  \/\ \\ \       ',
+\ '    __  __ /\_\    ___ ___      \/___//''/''\ \ \\ \    ',
+\ '   /\ \/\ \\/\ \ /'' __` __`\        /'' /''  \ \ \\ \_ ',
+\ '   \ \ \_/ |\ \ \/\ \/\ \/\ \      /'' /''__  \ \__ ,__\',
+\ '    \ \___/  \ \_\ \_\ \_\ \_\    /\_/ /\_\  \/_/\_\_/  ',
+\ '     \/__/    \/_/\/_/\/_/\/_/    \//  \/_/     \/_/    ',
+\ ]
+let g:startify_skiplist = [
+\ 'COMMIT_EDITMSG',
+\ escape(fnamemodify(resolve($VIMRUNTIME), ':p'), '\') .'doc',
+\ 'bundle/.*/doc',
+\ ]
 nmap ht :Startify<cr>
+
+
+"-- vim-multiple-cursors setting --
+let g:multi_cursor_use_default_mapping=0
+let g:multi_cursor_start_key='<F6>'
+let g:multi_cursor_start_word_key='g<C-n>'
+let g:multi_cursor_next_key='<S-n>'
+let g:multi_cursor_skip_key='<S-k>'
+
+
+"-----------------------------------------------------------------------
+"                               < 功能增强 >
+"-----------------------------------------------------------------------
+
+""开启matchit   --在匹配括号间快速跳转
+set nocompatible
+filetype plugin on
+runtime macros/matchit.vim
+
 
 "-----------------------------------------------------------------------
 "                               < 布局管理 >
 "-----------------------------------------------------------------------
 
 "-- vim-airline setting--
-let g:airline_theme = 'kolor'
-let g:airline_detect_modified=1
+let g:airline_theme = 'bubblegum'
 let g:airline_powerline_fonts=1
-let g:airline#extensions#default#layout = [
-      \ [ 'a', 'b', 'c' ],
-      \ [ 'x', 'y', 'z' ]
-      \ ]
-let g:airline#extensions#tabline#left_sep = ' '
-let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline_detect_modified=1
+let g:airline_detect_paste=1
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ''
+let g:airline#extensions#tabline#left_alt_sep = ''
+let g:airline#extensions#tabline#right_sep = ''
+let g:airline#extensions#tabline#right_alt_sep = ''
+let g:airline#extensions#default#layout = [
+\ [ 'a','b','c' ],
+\ [ 'y','z']
+\ ]
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = '¶'
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+if !exists('g:airline_symbols')
+	let g:airline_symbols = {}
+endif
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = '№'                   
+let g:airline_symbols.notexists = '∄'
+let g:airline_symbols.whitespace = 'Ξ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.maxlinenr = ''
+let g:airline_symbols.crypt = ''
+
 
 "-- Nerdtree setting --
-nmap nt :NERDTreeToggle<cr>
+let g:NERDTreeDirArrowExpandable = '▸'
+let g:NERDTreeDirArrowCollapsible = '▾'
+let NERDTreeIgnore=['\~$', '\.pyc$', '\.swp$','\.bak$','\.doc$','\.docx$','\.dll$', '\.exe$','\.xlsx$','\.ico$','\.png$','\.gif$','\.icon$','\.img$','\.mp3$','\.mp4$','\.wav$','\.zip$','\.rar$','\.7z$','\.tar$']
 "autocmd StdinReadPre * let s:std_in=1 "打开vim时自动打开nerdtree"
 "autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif "打开vim时自动打开nerdtree"
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif "仅剩Nerdtree时退出vim
+nmap nt :NERDTreeToggle<cr>
+
 
 "--tagbar setting--"
 nnoremap <silent> tb :TagbarToggle<CR>
@@ -501,6 +593,7 @@ let g:tagbar_ctags_bin='D:/Program Files (x86)/ctags58/ctags'
 let g:tagbar_width=25
 autocmd BufReadPost *.cpp,*.c,*.h,*.hpp,*.cc,*.cxx call tagbar#autoopen()
 nmap <F9> <Esc>:!ctags -R *<CR>
+
 
 "-----------------------------------------------------------------------
 "                               < 补全框架 >
@@ -519,14 +612,14 @@ let OmniCpp_DisplayMode=1
 let OmniCpp_ShowScopeInAbbr=1
 let OmniCpp_ShowAccess=1
 if has("autocmd")
-   filetype on
-   autocmd Filetype java setlocal tags+=D:\AppData\Vim\tags\Java\jdk1.6\tags
+filetype on
+autocmd Filetype java setlocal tags+=D:\AppData\Vim\tags\Java\jdk1.6\tags
 endif
 
 "-- neocomplete setting --
 "Note: This option must be set in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
 " Disable AutoComplPop.
-let g:acp_enableAtStartup = 0
+let g:acp_enableAtStartup = 1
 " Use neocomplete.
 let g:neocomplete#enable_at_startup = 1
 " Use smartcase.
@@ -537,14 +630,14 @@ let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
 
 " Define dictionary.
 let g:neocomplete#sources#dictionary#dictionaries = {
-    \ 'default' : '',
-    \ 'vimshell' : $HOME.'/.vimshell_hist',
-    \ 'scheme' : $HOME.'/.gosh_completions'
-        \ }
+\ 'default' : '',
+\ 'vimshell' : $HOME.'/.vimshell_hist',
+\ 'scheme' : $HOME.'/.gosh_completions'
+\ }
 
 " Define keyword.
 if !exists('g:neocomplete#keyword_patterns')
-    let g:neocomplete#keyword_patterns = {}
+let g:neocomplete#keyword_patterns = {}
 endif
 let g:neocomplete#keyword_patterns['default'] = '\h\w*'
 
@@ -556,9 +649,9 @@ inoremap <expr><C-l>     neocomplete#complete_common_string()
 " <CR>: close popup and save indent.
 inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
 function! s:my_cr_function()
-  return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
-  " For no inserting <CR> key.
-  "return pumvisible() ? "\<C-y>" : "\<CR>"
+return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
+" For no inserting <CR> key.
+"return pumvisible() ? "\<C-y>" : "\<CR>"
 endfunction
 " <TAB>: completion.
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
@@ -569,7 +662,7 @@ inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
 "inoremap <expr><Space> pumvisible() ? "\<C-y>" : "\<Space>"
 
 " AutoComplPop like behavior.
-"let g:neocomplete#enable_auto_select = 1
+let g:neocomplete#enable_auto_select = 1
 
 " Shell like behavior(not recommended).
 "set completeopt+=longest
@@ -586,7 +679,7 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 " Enable heavy omni completion.
 if !exists('g:neocomplete#sources#omni#input_patterns')
-  let g:neocomplete#sources#omni#input_patterns = {}
+let g:neocomplete#sources#omni#input_patterns = {}
 endif
 "let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
 "let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
@@ -596,37 +689,35 @@ endif
 " https://github.com/c9s/perlomni.vim
 let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 
+
 "-----------------------------------------------------------------------
 "                               < 补全模板 >
 "-----------------------------------------------------------------------
 
-let g:xptemplate_lib_filter = 'D:/Program Files (x86)/Vim/vimfiles/bundle/vim-snippets/UltiSnips'
-" Prevent supertab from mapping <tab> to anything.
-let g:SuperTabMappingForward = '<Plug>xpt_void'
+" Plugin key-mappings.
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
 
-" Tell XPTemplate what to fall back to, if nothing matches.
-" Original SuperTab() yields nothing if g:SuperTabMappingForward was set to
-" something it does not know.
-let g:xptemplate_fallback = '<C-r>=XPTwrapSuperTab("n")<CR>'
+" SuperTab like snippets behavior.
+"imap <expr><TAB>
+" \ pumvisible() ? "\<C-n>" :
+" \ neosnippet#expandable_or_jumpable() ?
+" \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 
-fun! XPTwrapSuperTab(command) "{{{
-    let v = SuperTab(a:command)
-    if v == ''
-        " Change \<Tab> to whatever you want, when neither XPTemplate or
-        " supertab needs to do anything.
-        return "\<Tab>"
-    else
-        return v
-    end
-endfunction "}}}
+" For conceal markers.
+if has('conceal')
+  set conceallevel=2 concealcursor=niv
+endif
+" Enable snipMate compatibility feature.
+let g:neosnippet#enable_snipmate_compatibility = 1
 
-let g:xptemplate_key = '<Plug>triggerxpt'
-inoremap <Plug>closePUM <C-v><C-v><BS>
-imap <TAB> <Plug>closePUM<Plug>triggerxpt
-" " Optional. Use this only when you have no other plugin like SuperTab to
-" " handle <TAB>.
-" let g:xptemplate_fallback = 'nore:<TAB>'
-let g:xptemplate_minimal_prefix = 0
+" Tell Neosnippet about the other snippets
+let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
+
+
 "-----------------------------------------------------------------------
 "                               < 开发环境 >
 "-----------------------------------------------------------------------
@@ -642,19 +733,19 @@ au CompleteDone *.java          call javaapi#showRef()
 au BufNewFile,BufRead *.java    inoremap <expr> <c-down> javaapi#nextRef()
 au BufNewFile,BufRead *.java    inoremap <expr> <c-up>   javaapi#prevRef()
 if has("balloon_eval") && has("balloon_multiline")
-           au BufNewFile,BufRead *.java  setl bexpr=javaapi#balloon()
-             au BufNewFile,BufRead *.java  setl ballooneval
+au BufNewFile,BufRead *.java  setl bexpr=javaapi#balloon()
+au BufNewFile,BufRead *.java  setl ballooneval
 endif
 let g:javaapi#delay_dirs = [
-   \ 'java-api-javax',
-   \ 'java-api-org',
-   \ 'java-api-sun',
-   \ ]
+\ 'java-api-javax',
+\ 'java-api-org',
+\ 'java-api-sun',
+\ ]
 
 "-- javap setting --
 let g:javap_defines = [
-   \ { 'jar' : $JAVA_HOME.'/jre/lib/rt.jar', 'javadoc' : 'file:D:/AppData/Java/jdk-8u101-docs-all/docs/api/index.html' },
-   \ ]
+\ { 'jar' : $JAVA_HOME.'/jre/lib/rt.jar', 'javadoc' : 'file:D:/AppData/Java/jdk-8u101-docs-all/docs/api/index.html' },
+\ ]
 
 
 " < Python >
@@ -676,6 +767,7 @@ let g:javap_defines = [
 " < HTML >
 
 "-- emmet setting --
+
 let g:user_emmet_expandabbr_key = '<Tab>'
 
 " < CSS >
@@ -691,6 +783,7 @@ let g:pymode_run_bind = "<C-S-e>"
 
 " Override view python doc key shortcut to Ctrl-Shift-d
 let g:pymode_doc_bind = "<C-S-d>"
+
 
 "-----------------------------------------------------------------------
 "                               < 注释 >
@@ -759,32 +852,47 @@ let g:NERDTrimTrailingWhitespace = 1
 "[count]<leader>cu |NERDComUncommentLine|
 "Uncomments the selected line(s).
 
+
 "-----------------------------------------------------------------------
 "                               < 语法检查 >
 "-----------------------------------------------------------------------
 
-let g:syntastic_error_symbol='!!'
-let g:syntastic_warning_symbol='!'
+function QfMakeConv()
+let qflist = getqflist()
+for i in qflist
+let i.text = iconv(i.text, "utf-8", "cp936")
+endfor
+call setqflist(qflist)
+endfunction
+au QuickfixCmdPost make call QfMakeConv()
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_error_symbol='✗'   ""
+let g:syntastic_warning_symbol='⚠'
 let g:syntastic_check_on_open=1
 let g:syntastic_check_on_wq=0
 let g:syntastic_enable_highlighting=1
+let g:syntastic_loc_list_height=5
 let g:syntastic_python_checkers=['pyflakes']
 let g:syntastic_javascript_checkers = ['jsl', 'jshint']
 let g:syntastic_html_checkers=['tidy', 'jshint']
-" 修改高亮的背景色, 适应主题
-highlight SyntasticErrorSign guifg=white guibg=black
-
-" to see error location list
-let g:syntastic_always_populate_loc_list = 0
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_loc_list_height = 5
+highlight SyntasticErrorSign guifg=white guibg=red
+highlight SyntasticError guibg=#2f0000
+let g:syntastic_enable_signs=1
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 1
+set signcolumn=yes
+set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
 function! ToggleErrors()
-    let old_last_winnr = winnr('$')
-    lclose
-    if old_last_winnr == winnr('$')
-        " Nothing was closed, open syntastic error location panel
-        Errors
-    endif
+let old_last_winnr = winnr('$')
+lclose
+if old_last_winnr == winnr('$')
+" Nothing was closed, open syntastic error location panel
+Errors
+endif
 endfunction
 nnoremap <Leader>er :call ToggleErrors()<cr>
 nnoremap <Leader>sn :lnext<cr>
@@ -792,74 +900,123 @@ nnoremap <Leader>sp :lprevious<cr>
 
 
 "-----------------------------------------------------------------------
-"                               < MarkDown >
+"                            < MarkDown >
 "-----------------------------------------------------------------------
 
-let g:vim_markdown_folding_style_pythonic = 1
-let g:vim_markdown_folding_level = 6
-let g:vim_markdown_no_default_key_mappings = 1
-let g:vim_markdown_toc_autofit = 1
-set conceallevel=2
-let g:vim_markdown_fenced_languages = ['csharp=cs']
-let g:vim_markdown_toml_frontmatter = 1
-let g:vim_markdown_json_frontmatter = 1
+"-- markdown-preview setting --
+" 设置 chrome 浏览器的路径（或是启动 chrome（或其他现代浏览器）的命令）
+let g:mkdp_path_to_chrome = "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe"
 
-"ge: open the link under the cursor in Vim for editing. Useful for relative markdown links. <Plug>Markdown_EditUrlUnderCursor
+" 设置为 1 可以在打开 markdown 文件的时候自动打开浏览器预览，只在打开
+" markdown 文件的时候打开一次
+let g:mkdp_auto_start = 0
 
-"The rules for the cursor position are the same as the gx command.
+" 设置为 1 在编辑 markdown 的时候检查预览窗口是否已经打开，否则自动打开预
+" 览窗口
+let g:mkdp_auto_open = 0
 
-"]]: go to next header. <Plug>Markdown_MoveToNextHeader
+" 在切换 buffer 的时候自动关闭预览窗口，设置为 0 则在切换 buffer 的时候不
+" 自动关闭预览窗口
+let g:mkdp_auto_close = 0
 
-"[[: go to previous header. Contrast with ]c. <Plug>Markdown_MoveToPreviousHeader
+" 设置为 1 则只有在保存文件，或退出插入模式的时候更新预览，默认为 0，实时
+" 更新预览
+let g:mkdp_refresh_slow = 0
 
-"][: go to next sibling header if any. <Plug>Markdown_MoveToNextSiblingHeader
-
-"[]: go to previous sibling header if any. <Plug>Markdown_MoveToPreviousSiblingHeader
-
-"]c: go to Current header. <Plug>Markdown_MoveToCurHeader
-
-"]u: go to parent header (Up). <Plug>Markdown_MoveToParentHeader
+"快捷键
+nnoremap <Leader><F3> :MarkdownPreview<cr>
+nnoremap <Leader><F4> :MarkdownPreviewStop<cr>
 
 
 "-----------------------------------------------------------------------
 "                               < git >
 "-----------------------------------------------------------------------
 
-":Gbrowse  open the current file on GitHub
-":Ggrep    search the work tree (or any arbitrary commit)
-":Glog     loads all previous revisions of a file into the quickfix list so you can iterate over them and watch the file evolve!
-":Gstatus  
-":Gcommit
-":Gdiff
-":Gedit    View any blob, tree, commit, or tag in the repository  ##:Gsplit, :Gvsplit, :Gtabedit
-"
+"":GV to open commit browser
+"":GV! will only list commits that affected the current file
+"":GV? fills the quickfix window with the revisions of the current file
+
 
 "-----------------------------------------------------------------------
-"                               < 脚本 >
+"                           < vim-devicons >
+"-----------------------------------------------------------------------
+
+filetype plugin indent on
+set encoding=utf-8
+let g:WebDevIconsOS = 'Darwin'
+let g:webdevicons_enable = 1
+let g:webdevicons_enable_nerdtree = 1
+let g:webdevicons_enable_vimfiler = 1
+let g:webdevicons_enable_airline_tabline = 1
+let g:webdevicons_enable_airline_statusline = 1
+let g:webdevicons_enable_ctrlp = 1
+let g:webdevicons_conceal_nerdtree_brackets = 1
+let g:WebDevIconsNerdTreeGitPluginForceVAlign = 1
+let g:WebDevIconsUnicodeDecorateFileNodesDefaultSymbol = 'ƛ'
+let g:WebDevIconsUnicodeDecorateFolderNodes = 1
+let g:DevIconsDefaultFolderOpenSymbol = 'ƛ'
+let g:airline_powerline_fonts=1
+let g:WebDevIconsUnicodeGlyphDoubleWidth = 1
+let g:WebDevIconsNerdTreeAfterGlyphPadding = '  '
+let g:WebDevIconsUnicodeDecorateFolderNodes = 1
+let g:DevIconsEnableFoldersOpenClose = 1
+let g:DevIconsEnableFolderPatternMatching = 1
+let g:DevIconsEnableFolderExtensionPatternMatching = 1
+let WebDevIconsUnicodeDecorateFolderNodesExactMatches = 1
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols = {} " needed
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['txt'] = '✍'
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['myext'] = 'ƛ'
+
+
+"-----------------------------------------------------------------------
+"                            < 文本文件高亮 >
+"-----------------------------------------------------------------------
+
+au BufRead,BufNewFile * setfiletype txt 
+
+
+"-----------------------------------------------------------------------
+"                             < 撤销历史 >
+"-----------------------------------------------------------------------
+
+"-- undotree setting --
+nmap ut :UndotreeToggle<cr>
+if has("persistent_undo")
+    set undodir=D:/AppData/Vim/plugin/undotree/
+    set undofile
+endif
+
+
+"-----------------------------------------------------------------------
+"                              < 天气 >
+"-----------------------------------------------------------------------
+
+"-----------------------------------------------------------------------
+"                              < 脚本 >
 "-----------------------------------------------------------------------
 
 "-- 代码格式优化 --
 func FormartSrc()
-    exec "w"
-    if &filetype == 'c'
-        exec "!astyle --style=ansi -a --suffix=none %"
-    elseif &filetype == 'cpp' || &filetype == 'hpp'
-        exec "r !astyle --style=ansi --one-line=keep-statements -a --suffix=none %> /dev/null 2>&1"
-    elseif &filetype == 'perl'
-        exec "!astyle --style=gnu --suffix=none %"
-    elseif &filetype == 'py'||&filetype == 'python'
-        exec "r !autopep8 -i --aggressive %"
-    elseif &filetype == 'java'
-        exec "!astyle --style=java --suffix=none %"
-    elseif &filetype == 'jsp'
-        exec "!astyle --style=gnu --suffix=none %"
-    elseif &filetype == 'xml'
-        exec "!astyle --style=gnu --suffix=none %"
-    else
-        exec "normal gg=G"
-        return
-    endif
-    exec "e! %"
+exec "w"
+if &filetype == 'c'
+exec "!astyle --style=ansi -a --suffix=none %"
+elseif &filetype == 'cpp' || &filetype == 'hpp'
+exec "r !astyle --style=ansi --one-line=keep-statements -a --suffix=none %> /dev/null 2>&1"
+elseif &filetype == 'perl'
+exec "!astyle --style=gnu --suffix=none %"
+elseif &filetype == 'py'||&filetype == 'python'
+exec "r !autopep8 -i --aggressive %"
+elseif &filetype == 'java'
+exec "!astyle --style=java --suffix=none %"
+elseif &filetype == 'jsp'
+exec "!astyle --style=gnu --suffix=none %"
+elseif &filetype == 'xml'
+exec "!astyle --style=gnu --suffix=none %"
+else
+exec "normal gg=G"
+return
+endif
+exec "e! %"
 endfunc
 map <F2> :call FormartSrc()<CR><CR>
 
@@ -869,13 +1026,13 @@ set foldmethod=indent
 set foldlevel=99
 let g:FoldMethod = 0
 fun! ToggleFold()
-    if g:FoldMethod == 0
-        exe "normal! zM"
-        let g:FoldMethod = 1
-    else
-        exe "normal! zR"
-        let g:FoldMethod = 0
-    endif
+if g:FoldMethod == 0
+exe "normal! zM"
+let g:FoldMethod = 1
+else
+exe "normal! zR"
+let g:FoldMethod = 0
+endif
 endfun
 nnoremap <Up> :call ToggleFold() <CR>
 
@@ -883,12 +1040,13 @@ nnoremap <Up> :call ToggleFold() <CR>
 "#非插入模式下F11全屏
 "#插入模式下F11全屏
 if has('win32')
-  map <F11> <Esc>:call libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 0)<CR>
-  imap <F11> <Esc>:call libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 0)<CR>
+map <F11> <Esc>:call libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 0)<CR>
+imap <F11> <Esc>:call libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 0)<CR>
 endif
 
 "-- 换行开关 --
 nnoremap <Down> :set wrap! wrap?<CR>
+
 
 "-----------------------------------------------------------------------
 "                               < 常用工具 >
@@ -900,3 +1058,30 @@ nnoremap <Down> :set wrap! wrap?<CR>
 ":Calendar -view=year -split=horizontal -position=below -height=12"
 ":Calendar -first_day=monday"
 ":Calendar -view=clock"
+
+"-----------------------------------------------------------------------
+"                               < 编译运行 >
+"-----------------------------------------------------------------------
+
+map <F5> :call CompileAndRun()<CR>
+imap <F5> <ESC>:call CompileAndRun()<CR>
+func! CompileAndRun()
+exec "w"
+exec "cd %:p:h"
+if &filetype == 'c'
+silent exec "!g++ % -o %<"
+silent exec "! ./%<"
+elseif &filetype == 'cpp'
+silent exec "!g++ % -o %<"
+silent exec "! ./%<"
+elseif &filetype == 'java' 
+silent exec "!javac %" 
+exec "!java %<"
+elseif &filetype == 'sh'
+silent exec '!start cmd /C sh ' . shellescape(expand("%")) . ' & pause'
+elseif &filetype == 'js'  
+exec "!node %<"
+elseif &filetype == 'py'  
+silent exec '!start cmd /C python ' . shellescape(expand("%")) . ' & pause'
+endif
+endfunc
