@@ -16,10 +16,13 @@
 5. 启动GVim
 6. 运行：PluginInstall
 
+
 * Linux用户
+
 1. 备份配置文件
 2. 替换_vimrc
 3. Vim下运行PluginInstall
+
 
 #效果
 1. 
@@ -35,10 +38,14 @@
 
 ##翻译
 > 翻译单词 
+
 * 普通模式：将光标至于要翻译的单词上 按下 `<Ctrl-t>`
 * 可视模式：选中单词 按下`<Ctrl-t>`
+
 ![翻译单词](http://i1.piimg.com/4851/e01bc30f5d329439.png)
 
 > 翻译句子
+
 * 可视模式：选中要翻译的句子 按下`<Ctrl-t>`
+
 ![翻译句子](http://i1.piimg.com/4851/17dfb1c0b7b2377c.png)
