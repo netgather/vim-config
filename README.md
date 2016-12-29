@@ -1,4 +1,5 @@
 >包含Vim的配置文件、添加Python和Luau支持的Vim可执行程序
+>Vim并不是集成开发环境，没有必要将Vim配置的那么臃肿，违反一个文版编辑器的初衷
 
 #准备
 1. Vim 8.0(+) with Vundle
