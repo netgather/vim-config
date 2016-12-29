@@ -101,3 +101,8 @@
 > 命令模式：输入`CtrlPMRU`
 
 ![查找常用文件](http://i1.piimg.com/4851/b3bb278dc70a8315.png)
+
+##Markdown
+> 命令模式：输入MarkdownPreview
+
+![Markdown实时预览](http://p1.bqimg.com/4851/e9149099d91f0087.gif)
