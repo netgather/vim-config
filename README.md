@@ -97,7 +97,7 @@
 ![查找缓冲区](http://i1.piimg.com/4851/13dfca838339d488.png)
 
 
-##查找常用文件
+##查找最近使用的文件
 > 命令模式：输入`CtrlPMRU`
 
 ![查找常用文件](http://i1.piimg.com/4851/b3bb278dc70a8315.png)
