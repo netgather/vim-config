@@ -90,4 +90,8 @@
 ##查找缓冲区
 > 命令模式：输入`CtrlBuffer`
 
-![查找缓冲区](http://i1.piimg.com/4851/bec46c2eb2843173.png)
+![查找缓冲区](http://i1.piimg.com/4851/13dfca838339d488.png)
+
+
+##查找常用文件
+![查找常用文件](http://i1.piimg.com/4851/ba1ddfe791730834.png)
