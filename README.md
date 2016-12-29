@@ -16,7 +16,6 @@
 5. 启动GVim
 6. 运行：PluginInstall
 
-
 * Linux用户
 
 1. 备份配置文件
