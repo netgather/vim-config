@@ -85,7 +85,7 @@
 ##查找文件
 > 命令模式：输入`CtrlP`
 
-![查找文件](http://p1.bqimg.com/4851/47afd23a8da04e10.png)
+![查找文件](http://i1.piimg.com/4851/ba1ddfe791730834.png)
 
 ##查找缓冲区
 > 命令模式：输入`CtrlBuffer`
