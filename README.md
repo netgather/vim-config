@@ -94,4 +94,4 @@
 
 
 ##查找常用文件
-![查找常用文件](http://i1.piimg.com/4851/ba1ddfe791730834.png)
+![查找常用文件](http://i1.piimg.com/4851/b3bb278dc70a8315.png)
