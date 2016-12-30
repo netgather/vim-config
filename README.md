@@ -117,4 +117,4 @@
 ##Markdown
 > 命令模式：输入`MarkdownPreview`
 
-![Markdown实时预览](http://p1.bqimg.com/4851/ed7565b794ee1175.gif)
+![Markdown实时预览](http://p1.bpimg.com/4851/6f07f0341749f07d.gif?raw=true)
