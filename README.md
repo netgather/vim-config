@@ -55,9 +55,9 @@
 
 
 ##状态行
->格式：当前模式>分支或拼写检查>文件名  ...  文件编码<当前行百分比 当前行/所有行 当前列
+>格式：当前模式>分支或拼写检查>文件名  ...  文件编码<当前行百分比 当前行/所有行 当前列
 
-![状态行](http://p1.bpimg.com/4851/7527a835b53a89fa.png)
+![状态行](./_image/status bar.png)
 
 ##文件列表
 >普通模式下输入 `nt`
@@ -130,4 +130,7 @@
 
 ![Markdown实时预览](http://p1.bpimg.com/4851/6f07f0341749f07d.gif?raw=true)
 
-## To be continued
+##CSS Color
+![csscolor](./_image/csscolor.png)
+
+To be continued......
