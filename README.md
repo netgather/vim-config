@@ -13,6 +13,7 @@
 * TypeScript
 * Java
 * Coffee
+* Swift
 
 #准备
 1. Vim 8.0(+) with Vundle
@@ -127,3 +128,5 @@
 > 命令模式：输入`MarkdownPreview`
 
 ![Markdown实时预览](http://p1.bpimg.com/4851/6f07f0341749f07d.gif?raw=true)
+
+## To be continued
