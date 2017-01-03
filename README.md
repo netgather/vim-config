@@ -15,6 +15,34 @@
 * Coffee
 * Swift
 
+#包含的功能
+* 所支持语言的补全、语法高亮、缩进
+* 模板补全
+* 语法检查
+* 缓冲区补全
+* 有道翻译
+* 书签、注解
+* 状态行美化
+* 文件图标
+* 历史文件
+* Git
+* Markdown实时预览
+* CSS Color
+* Emmet
+* Nerdtree
+* Tagbar
+* 撤销历史 
+* 缓冲区文件列表
+* 文件查找
+* Vim操作符增强
+* Vim动作命令增强
+* 快速添加注释
+* 全屏切换
+* 代码格式优化
+* 代码折叠
+* 缓冲区文件快速切换
+* Vim与系统共用剪切板
+
 #准备
 1. Vim 8.0(+) with Vundle
 2. [安装字体补丁](https://github.com/powerline/fonts)
