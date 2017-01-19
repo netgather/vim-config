@@ -1,37 +1,33 @@
 <a name="top"></a>
-<a href=""><img src="./_image/foobar_128px_1077000_easyicon.net.png" alt="Made with Spacemacs" style="height:25px"></a><a href=""><img src="http://i.imgur.com/tXSoThF.png" alt="Twitter" align="right"></a><br>
+<a href="#"><img src="./_image/foobar_128px_1077000_easyicon.net1.png" alt="Made with Spacemacs" style="height:25px"></a><a href=""><img src="http://i.imgur.com/tXSoThF.png" alt="Twitter" align="right"></a><br>
 ***
 <p align="center"><img src="./_image/vim_2_128px_541234_easyicon.net.ico" alt="Spacemacs"/></p>
 <p align="center">
 <b><a href="">philosophy</a></b>
 |
-<b><a href=">for whom?</a></b>
+<b><a href="#">for whom?</a></b>
 |
-<b><a href="">screenshots</a></b>
+<b><a href="#">screenshots</a></b>
 |
-<b><a href="">documentation</a></b>
+<b><a href="#">documentation</a></b>
 |
-<b><a href="">contribute</a></b>
+<b><a href="#">contribute</a></b>
 |
-<b><a href="">achievements</a></b>
+<b><a href="#">achievements</a></b>
 |
-<b><a href="">FAQ</a></b>
+<b><a href="#">FAQ</a></b>
 </p>
+
 ***
 <p align="center">
-<a href=""><img src="https://badges.gitter.im/Join Chat.svg" alt="Gitter"></a>
-<a href=""><img src="https://travis-ci.org/syl20bnr/spacemacs.svg" alt="Build Status"></a>
-<a href=""><img src="https://badge.waffle.io/syl20bnr/spacemacs.png?label=Merging...&title=Merging" alt="PR being merged"></a>
-<a href=""><img src="https://img.shields.io/badge/Paypal-Donate-blue.svg" alt="Donate"></a>
-<a href=""><img src="https://img.shields.io/badge/Shop-T--Shirts-blue.svg" alt="Donate"></a>
-<a href=""><img src="https://img.shields.io/badge/Slant-Recommend-ff69b4.svg" alt="Recommend it"></a>
+<a href="#"><img src="https://badges.gitter.im/Join Chat.svg" alt="Gitter"></a>
+<a href="#"><img src="https://travis-ci.org/syl20bnr/spacemacs.svg" alt="Build Status"></a>
+<a href="#"><img src="https://badge.waffle.io/syl20bnr/spacemacs.png?label=Merging...&title=Merging" alt="PR being merged"></a>
+<a href="#"><img src="https://img.shields.io/badge/Paypal-Donate-blue.svg" alt="Donate"></a>
+<a href="#"><img src="https://img.shields.io/badge/Shop-T--Shirts-blue.svg" alt="Donate"></a>
+<a href="#"><img src="https://img.shields.io/badge/Slant-Recommend-ff69b4.svg" alt="Recommend it"></a>
 </p>
 ***
-=======
-![](./_image/vim_2_128px_541234_easyicon.net.ico)
-
->>>>>>> 8e5f85c9b526a431baf47a7a012f0079b3563707
-
 
 #支持的语言
 * HTML
