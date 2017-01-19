@@ -1,5 +1,5 @@
 <a name="top"></a>
-<a href="#"><img src="./_image/foobar_128px_1077000_easyicon.net1.png" alt="Made with Spacemacs" style="height:25px"></a><a href=""><img src="http://i.imgur.com/tXSoThF.png" alt="Twitter" align="right"></a><br>
+
 ***
 <p align="center"><img src="./_image/vim_2_128px_541234_easyicon.net.ico" alt="Spacemacs"/></p>
 <p align="center">
