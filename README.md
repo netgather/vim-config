@@ -1,7 +1,7 @@
 <a name="top"></a>
 
 
-<p align="center"><img src="./_image/vim_2_128px_541234_easyicon.net.ico" alt="Spacemacs"/></p>
+<p align="center"><img src="./_image/vim_2_128px_541234_easyicon.net.ico" alt="vim"/></p>
 <p align="center">
 <b><a href="">philosophy</a></b>
 |
@@ -84,7 +84,7 @@
 3. 替换_vimrc
 4. 将_vimrc中有关的目录替换成你的目录
 5. 替换gvim.exe
-6. 启动GVim
+6. 启动Gvim
 7. 运行：PluginInstall
 
 * Linux用户
