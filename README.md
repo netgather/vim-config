@@ -1,6 +1,6 @@
 <a name="top"></a>
 
-***
+
 <p align="center"><img src="./_image/vim_2_128px_541234_easyicon.net.ico" alt="Spacemacs"/></p>
 <p align="center">
 <b><a href="">philosophy</a></b>
@@ -82,15 +82,17 @@
 1. 备份配置文件
 2. git clone https://github.com/netgather/vim-config.git
 3. 替换_vimrc
-4. 替换gvim.exe
-5. 启动GVim
-6. 运行：PluginInstall
+4. 将_vimrc中有关的目录替换成你的目录
+5. 替换gvim.exe
+6. 启动GVim
+7. 运行：PluginInstall
 
 * Linux用户
 
 1. 备份配置文件
 2. 替换_vimrc
-3. Vim下运行PluginInstall
+3. 将_vimrc中有关的目录替换成你的目录
+4. Vim下运行PluginInstall
 
 
 #效果
