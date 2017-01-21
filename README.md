@@ -23,8 +23,8 @@
 <a href="#"><img src="https://badges.gitter.im/Join Chat.svg" alt="Gitter"></a>
 <a href="#"><img src="https://travis-ci.org/syl20bnr/spacemacs.svg" alt="Build Status"></a>
 <a href="#"><img src="https://badge.waffle.io/syl20bnr/spacemacs.png?label=Merging...&title=Merging" alt="PR being merged"></a>
-<a href="#"><img src="https://img.shields.io/badge/Paypal-Donate-blue.svg" alt="Donate"></a>
-<a href="#"><img src="https://img.shields.io/badge/Shop-T--Shirts-blue.svg" alt="Donate"></a>
+<a href="http://iccf-holland.org/uganda.html"><img src="https://img.shields.io/badge/Paypal-Donate-blue.svg" alt="Donate"></a>
+<a href="http://iccf-holland.org/uganda.html"><img src="https://img.shields.io/badge/Shop-T--Shirts-blue.svg" alt="Donate"></a>
 <a href="#"><img src="https://img.shields.io/badge/Slant-Recommend-ff69b4.svg" alt="Recommend it"></a>
 </p>
 ***
