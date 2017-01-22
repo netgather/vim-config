@@ -191,9 +191,22 @@
 ![Java补全](./_image/Markdown实时预览3.gif)
 
 
-
 ##CSS Color
 ![csscolor](./_image/csscolor.png)
 
-To be continued......
+
+##快速跳转
+
+> 该功能类似于Chrome中的Vimium插件提供的功能
+
+>光标前向跳转 ： 普通模式下：“空格 + w”
+
+![前向快速跳转](./_image/前向快速跳转.gif)
+
+>光标后向跳转 ：普通模式下： “空格 + b”
+
+![快速后向跳转](./_image/快速后向跳转.gif)
+
+
+#To be continued......
 

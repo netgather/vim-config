@@ -34,7 +34,7 @@ Plugin 'https://github.com/vim-airline/vim-airline'
 Plugin 'https://github.com/vim-airline/vim-airline-themes'
 
 ""历史文件
-Plugin 'https://github.com/mhinz/vim-startify'
+"Plugin 'https://github.com/mhinz/vim-startify'
 
 ""图标
 Plugin 'https://github.com/ryanoasis/vim-devicons'
@@ -83,6 +83,9 @@ Plugin 'https://github.com/vim-scripts/txt.vim'
 ""撤销历史
 Plugin 'https://github.com/mbbill/undotree'
 
+""快速跳转
+Plugin 'https://github.com/easymotion/vim-easymotion'
+
 
 "-----------------------------------------------------------
 "--vim操作符扩展
@@ -106,7 +109,8 @@ Plugin 'https://github.com/tpope/vim-commentary'
 
 Plugin 'https://github.com/vim-scripts/OmniCppComplete'
 Plugin 'https://github.com/Shougo/neocomplete.vim'
-
+"Plugin 'https://github.com/vim-scripts/AutoComplPop'
+Plugin 'https://github.com/Shougo/neocomplcache-rsense.vim'
 
 "-----------------------------------------------------------
 "--补全模板
@@ -132,10 +136,15 @@ Plugin 'https://github.com/pangloss/vim-javascript'
 
 ""html
 Plugin 'https://github.com/mattn/emmet-vim'
+Plugin 'https://github.com/alvan/vim-closetag'
+
 
 ""Python
 Plugin 'https://github.com/klen/python-mode'
 
+""Ruby
+Plugin 'https://github.com/tpope/vim-rails'
+Plugin 'https://github.com/vim-scripts/ruby_imaps'
 
 "-----------------------------------------------------------
 "--注释
@@ -162,17 +171,22 @@ Plugin 'https://github.com/vim-syntastic/syntastic'
 "--markdown
 "-----------------------------------------------------------
 
-
 Plugin 'https://github.com/hallison/vim-markdown'
 Plugin 'https://github.com/iamcco/markdown-preview.vim'
+
 
 "-----------------------------------------------------------
 "--Git
 "-----------------------------------------------------------
+
 Plugin 'junegunn/gv.vim'
 
 
+"-----------------------------------------------------------
+"--延时加载
+"-----------------------------------------------------------
 
+Plugin 'https://github.com/Shougo/dein.vim'
 
 
 
@@ -243,7 +257,7 @@ set lines=35 columns=120
 "配色
 syntax enable
 set background=dark
-colorscheme vividchalk
+colorscheme Spacedust
 
 "字体设置
 set guifont=DejaVuSansMonoForPowerline\ Nerd:h11:cANSI
@@ -407,15 +421,19 @@ nmap w. :resize +3<CR>            "水平
 nmap q, :vertical resize -3<CR>   "竖直
 nmap q. :vertical resize +3<CR>   "竖直
 
+"模拟Emacs
+
+
 "-----------------------------------------------------------------------
 "                             < 字典设置 >
 "-----------------------------------------------------------------------
 
-autocmd filetype javascript set dictionary+=D:/AppData/Vim/directory/dict/javascript.dic
-autocmd filetype javascript set dictionary+=D:/AppData/Vim/directory/dict/node.dic
-autocmd filetype css set dictionary+=D:/AppData/Vim/directory/dict/css.dic
+autocmd filetype javascript set dictionary+=D:/AppData/Vim/directory/dict/javascript.dict
+autocmd filetype javascript set dictionary+=D:/AppData/Vim/directory/dict/node.dict
+autocmd filetype css set dictionary+=D:/AppData/Vim/directory/dict/css.dict
 autocmd filetype java set dictionary+=D:/AppData/Vim/directory/dict/java.dict
-autocmd filetype html setlocal dictionary+=D:/AppData/Vim/directory/dict/html.dic
+autocmd filetype html setlocal dictionary+=D:/AppData/Vim/directory/dict/html.dict
+autocmd filetype ruby setlocal dictionary+=D:/AppData/Vim/directory/dict/ruby.dict
 
 "-----------------------------------------------------------------------
 "                          < 普通关键字补全 >
@@ -433,6 +451,7 @@ autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType javascript setlocal omnifunc=tern#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 autocmd FileType java set omnifunc=javacomplete#Complete
+autocmd FileType ruby set omnifunc=rubycomplete#Complete
 
 "-----------------------------------------------------------------------
 "                               < 管理插件 >
@@ -546,15 +565,15 @@ runtime macros/matchit.vim
 "-----------------------------------------------------------------------
 
 "-- vim-airline setting--
-let g:airline_theme = 'bubblegum'
+let g:airline_theme = 'tomorrow'
 let g:airline_powerline_fonts=1
 let g:airline_detect_modified=1
 let g:airline_detect_paste=1
 let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#left_sep = ''
-let g:airline#extensions#tabline#left_alt_sep = ''
-let g:airline#extensions#tabline#right_sep = ''
-let g:airline#extensions#tabline#right_alt_sep = ''
+let g:airline#extensions#tabline#left_sep = ''
+let g:airline#extensions#tabline#left_alt_sep = ''
+let g:airline#extensions#tabline#right_sep = ''
+let g:airline#extensions#tabline#right_alt_sep = ''
 let g:airline#extensions#default#layout = [
 \ [ 'a','b','c' ],
 \ [ 'y','z']
@@ -593,6 +612,14 @@ let g:tagbar_ctags_bin='D:/Program Files (x86)/ctags58/ctags'
 let g:tagbar_width=25
 autocmd BufReadPost *.cpp,*.c,*.h,*.hpp,*.cc,*.cxx call tagbar#autoopen()
 nmap <F9> <Esc>:!ctags -R *<CR>
+
+
+"-----------------------------------------------------------------------
+"                               < 快速跳转 >
+"-----------------------------------------------------------------------
+
+let g:EasyMotion_smartcase = 1
+let g:EasyMotion_leader_key='<Space>'
 
 
 "-----------------------------------------------------------------------
@@ -768,7 +795,7 @@ let g:javap_defines = [
 
 "-- emmet setting --
 
-let g:user_emmet_expandabbr_key = '<Tab>'
+"let g:user_emmet_expandabbr_key = '<Tab>'
 
 " < CSS >
 
@@ -943,6 +970,8 @@ nnoremap <Leader><F4> :MarkdownPreviewStop<cr>
 
 filetype plugin indent on
 set encoding=utf-8
+set laststatus=2
+set t_Co=256
 let g:WebDevIconsOS = 'Darwin'
 let g:webdevicons_enable = 1
 let g:webdevicons_enable_nerdtree = 1
@@ -954,7 +983,7 @@ let g:webdevicons_conceal_nerdtree_brackets = 1
 let g:WebDevIconsNerdTreeGitPluginForceVAlign = 1
 let g:WebDevIconsUnicodeDecorateFileNodesDefaultSymbol = 'ƛ'
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
-let g:DevIconsDefaultFolderOpenSymbol = 'ƛ'
+let g:DevIconsDefaultFolderOpenSymbol = '▣'
 let g:airline_powerline_fonts=1
 let g:WebDevIconsUnicodeGlyphDoubleWidth = 1
 let g:WebDevIconsNerdTreeAfterGlyphPadding = '  '
@@ -965,7 +994,7 @@ let g:DevIconsEnableFolderExtensionPatternMatching = 1
 let WebDevIconsUnicodeDecorateFolderNodesExactMatches = 1
 let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols = {} " needed
 let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['txt'] = '✍'
-let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['myext'] = 'ƛ'
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['myext'] = '☯'
 
 
 "-----------------------------------------------------------------------
