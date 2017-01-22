@@ -3,19 +3,19 @@
 
 <p align="center"><img src="./_image/vim_2_128px_541234_easyicon.net.ico" alt="vim"/></p>
 <p align="center">
-<b><a href="">philosophy</a></b>
+<b><a href="jump">支持的语言</a></b>
 |
-<b><a href="#">for whom?</a></b>
+<b><a href="#">包含的功能</a></b>
 |
-<b><a href="#">screenshots</a></b>
+<b><a href="#">准备</a></b>
 |
-<b><a href="#">documentation</a></b>
+<b><a href="#">配置</a></b>
 |
-<b><a href="#">contribute</a></b>
+<b><a href="#">效果</a></b>
 |
-<b><a href="#">achievements</a></b>
+<b><a href="#">功能</a></b>
 |
-<b><a href="#">FAQ</a></b>
+<b><a href="http://iccf-holland.org/uganda.html">帮助</a></b>
 </p>
 
 ***
@@ -29,6 +29,7 @@
 </p>
 ***
 
+<span id = "jump"></span>
 #支持的语言
 * HTML
 * JavaScript
@@ -84,7 +85,7 @@
 3. 替换_vimrc
 4. 将_vimrc中有关的目录替换成你的目录
 5. 替换gvim.exe
-6. 启动Gvim
+6. 启动Gvim 
 7. 运行：PluginInstall
 
 * Linux用户
